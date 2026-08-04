@@ -39,7 +39,9 @@ export default function NavItem({
         {label}
       </span>
 
-      <span className="absolute bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-300 opacity-0 transition-opacity duration-150 group-[.active-nav]:opacity-100" />
+      {mobile && (
+        <span className="absolute bottom-1 left-1/2 h-0.5 w-4 -translate-x-1/2 rounded-full bg-gradient-to-r from-blue-400 to-cyan-300 opacity-0 transition-opacity duration-150 group-[.active-nav]:opacity-100" />
+      )}
     </a>
   );
 }
