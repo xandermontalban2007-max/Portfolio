@@ -128,10 +128,6 @@ export default function Services() {
                   <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.08] text-cyan-300 shadow-[0_12px_28px_rgba(0,0,0,0.18)]">
                     <SelectedIcon size={27} />
                   </span>
-
-                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 font-mono text-[10px] font-black tracking-[0.14em] text-white/45">
-                    SERVICE {String(activeService + 1).padStart(2, "0")}
-                  </span>
                 </div>
 
                 <div className="my-auto py-7">
