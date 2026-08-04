@@ -22,7 +22,10 @@ export default function Navbar() {
       const scrollY = window.scrollY;
       const navBottom =
         navShellRef.current?.getBoundingClientRect().bottom || 88;
-      const activationLine = navBottom + 8;
+      const activationLine = Math.max(
+        navBottom + 8,
+        Math.min(window.innerHeight * 0.34, navBottom + 220),
+      );
       const pageEnd =
         document.documentElement.scrollHeight - window.innerHeight;
       let currentSection = sectionIds[0] || "home";
