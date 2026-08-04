@@ -151,7 +151,7 @@ export default function Hero() {
           </motion.div>
         </motion.div>
 
-        <div className="flex w-full transform-gpu items-center justify-center">
+        <div className="flex w-full transform-gpu items-center justify-center lg:translate-y-3">
           <HeroImage />
         </div>
       </div>
