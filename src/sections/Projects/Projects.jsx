@@ -25,13 +25,13 @@ const researchProjects = [
     shortTitle: "Student Commuting Experiences",
     team: "6-member research team",
     summary:
-      "This study explored the daily commuting experiences of six Grade 11 and Grade 12 students. It looked at comfort, travel time, cost, safety, stress, and the effects of commuting on school life",
+      "This study explored the daily commuting experiences of six Grade 11 and Grade 12 students. It looked at comfort, travel time, cost, safety, stress, and the effects of commuting on school life.",
     method:
-      "The study used a qualitative phenomenological design. Data came from semi-structured interviews and follow-up questions, then the responses were reviewed through thematic analysis",
+      "The study used a qualitative phenomenological design. Data came from semi-structured interviews and follow-up questions, then the responses were reviewed through thematic analysis.",
     result:
-      "Students had mixed experiences. Public transport was useful and affordable for some, while others faced crowded vehicles, heat, traffic, long waiting times, tiredness, and safety concerns",
+      "Students had mixed experiences. Public transport was useful and affordable for some, while others faced crowded vehicles, heat, traffic, long waiting times, tiredness, and safety concerns.",
     role:
-      "As team leader, I helped organize the research plan, interview questions, schedules, assigned tasks, documentation, analysis, writing, and presentation",
+      "As team leader, I helped organize the research plan, interview questions, schedules, assigned tasks, documentation, analysis, writing, and presentation.",
     recognition: ["Presented and evaluated at Gulod Senior High School"],
     tools: ["Microsoft Word", "Microsoft PowerPoint", "Interview Guide", "Thematic Analysis"],
     paperUrl:
@@ -53,13 +53,13 @@ const researchProjects = [
     shortTitle: "Tools and Equipment Availability",
     team: "9-member research team",
     summary:
-      "This study examined the availability and use of tools and equipment in the EIM laboratory. It also looked at the problems students faced while completing practical activities",
+      "This study examined the availability and use of tools and equipment in the EIM laboratory. It also looked at the problems students faced while completing practical activities.",
     method:
-      "The study used a descriptive quantitative design with 37 respondents. Data came from a validated survey and were analyzed using frequency, percentage, ranking, and weighted mean",
+      "The study used a descriptive quantitative design with 37 respondents. Data came from a validated survey and were analyzed using frequency, percentage, ranking, and weighted mean.",
     result:
-      "Students generally used tools safely, but limited equipment, tool sharing, and difficulty using some tools caused delays. The findings became the basis for Project SORT",
+      "Students generally used tools safely, but limited equipment, tool sharing, and difficulty using some tools caused delays. The findings became the basis for Project SORT.",
     role:
-      "As team leader, I helped coordinate planning, task assignment, survey preparation, data gathering, analysis, paper checking, and presentation",
+      "As team leader, I helped coordinate planning, task assignment, survey preparation, data gathering, analysis, paper checking, and presentation.",
     recognition: ["1st Best Research Paper", "Best Research Output"],
     tools: ["Microsoft Word", "Microsoft PowerPoint", "Survey", "Data Analysis"],
     paperUrl:
