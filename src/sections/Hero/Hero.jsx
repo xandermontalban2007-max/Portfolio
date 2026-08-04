@@ -35,7 +35,7 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate -mt-20 min-h-[calc(100svh-5rem)] overflow-hidden bg-[#070b18] pt-20"
+      className="relative z-10 isolate -mt-20 min-h-[calc(100svh-5rem)] overflow-hidden bg-[#070b18] pt-20"
     >
       <motion.div
         aria-hidden="true"
