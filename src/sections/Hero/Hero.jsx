@@ -8,6 +8,27 @@ import { HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
 import portfolioData from "../../data/portfolioData";
 import HeroImage from "./HeroImage";
 
+const premiumEase = [0.16, 1, 0.3, 1];
+
+const heroSequence = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.14,
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const heroItem = {
+  hidden: { opacity: 0, y: 22 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.72, ease: premiumEase },
+  },
+};
+
 export default function Hero() {
   const { personal } = portfolioData;
 
@@ -16,7 +37,13 @@ export default function Hero() {
       id="home"
       className="relative isolate -mt-20 min-h-[calc(100svh-5rem)] overflow-hidden bg-[#070b18] pt-20"
     >
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <motion.div
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.35, ease: premiumEase }}
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+      >
         <div className="absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-blue-600/15 blur-[135px]" />
         <div className="absolute -right-40 top-1/3 h-[520px] w-[520px] rounded-full bg-indigo-500/18 blur-[140px]" />
         <div className="absolute bottom-0 left-1/3 h-[320px] w-[420px] rounded-full bg-cyan-500/10 blur-[120px]" />
@@ -27,44 +54,59 @@ export default function Hero() {
         <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#080d1b]/70 to-[#070b18] sm:h-80" />
         <div className="absolute -bottom-40 -left-[8%] h-80 w-[58%] rounded-[50%] bg-indigo-500/12 blur-[110px]" />
         <div className="absolute -bottom-40 -right-[8%] h-80 w-[58%] rounded-[50%] bg-cyan-500/10 blur-[115px]" />
-      </div>
+      </motion.div>
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 sm:pt-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.06fr_0.94fr] lg:gap-14 lg:px-10 lg:pb-14 lg:pt-0 xl:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          variants={heroSequence}
+          initial="hidden"
+          animate="visible"
           className="mx-auto w-full max-w-2xl transform-gpu text-center lg:mx-0 lg:text-left"
         >
-          <div className="flex justify-center lg:justify-start">
+          <motion.div
+            variants={heroItem}
+            className="flex justify-center lg:justify-start"
+          >
             <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.07] px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-emerald-300 shadow-[0_8px_24px_rgba(16,185,129,0.08)] sm:text-sm">
               <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_0_4px_rgba(16,185,129,0.12)]" />
               Open to part-time opportunities
             </div>
-          </div>
+          </motion.div>
 
-          <div className="mt-4 flex items-center justify-center gap-3 lg:justify-start">
+          <motion.div
+            variants={heroItem}
+            className="mt-4 flex items-center justify-center gap-3 lg:justify-start"
+          >
             <span className="h-px w-8 bg-gradient-to-r from-blue-400 to-indigo-400" />
             <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-indigo-300 sm:text-sm">
               Virtual Assistant
             </p>
-          </div>
+          </motion.div>
 
-          <h1 className="mt-3 text-[2.55rem] font-black leading-[0.98] tracking-[-0.055em] text-slate-50 sm:text-[3.4rem] lg:text-[3.45rem] xl:text-[3.75rem]">
+          <motion.h1
+            variants={heroItem}
+            className="mt-3 text-[2.55rem] font-black leading-[0.98] tracking-[-0.055em] text-slate-50 sm:text-[3.4rem] lg:text-[3.45rem] xl:text-[3.75rem]"
+          >
             Daniel Alexander
             <span className="mt-2 block bg-gradient-to-r from-blue-400 via-indigo-400 to-cyan-300 bg-clip-text pb-1 text-transparent">
               Montalban
             </span>
-          </h1>
+          </motion.h1>
 
-          <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-[1.05rem] lg:mx-0">
+          <motion.p
+            variants={heroItem}
+            className="mx-auto mt-4 max-w-xl text-base leading-7 text-slate-300 sm:text-[1.05rem] lg:mx-0"
+          >
             I help keep day-to-day work clear and under control through
             <span className="font-semibold text-slate-100"> accurate data entry</span>,
             <span className="font-semibold text-slate-100"> organized admin support</span>,
             and dependable online research.
-          </p>
+          </motion.p>
 
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
+          <motion.div
+            variants={heroItem}
+            className="mt-5 flex flex-wrap items-center justify-center gap-3 lg:justify-start"
+          >
             <a
               href="#contact"
               className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 font-bold text-white shadow-[0_14px_32px_rgba(79,70,229,0.32)] transition-shadow duration-200 ease-out hover:shadow-[0_18px_40px_rgba(79,70,229,0.44)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b18]"
@@ -90,10 +132,12 @@ export default function Hero() {
                 size={17}
               />
             </a>
+          </motion.div>
 
-          </div>
-
-          <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-slate-400 sm:text-sm lg:justify-start">
+          <motion.div
+            variants={heroItem}
+            className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-semibold text-slate-400 sm:text-sm lg:justify-start"
+          >
             <span className="flex items-center gap-2">
               <HiOutlineMapPin className="text-indigo-400" size={18} />
               {personal.location || "Batangas City, Philippines"}
@@ -103,17 +147,12 @@ export default function Hero() {
               <HiOutlineClock className="text-indigo-400" size={18} />
               GMT+8 · Philippine Time
             </span>
-          </div>
+          </motion.div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 12 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.4, delay: 0.03, ease: [0.16, 1, 0.3, 1] }}
-          className="flex w-full transform-gpu items-center justify-center lg:justify-end"
-        >
+        <div className="flex w-full transform-gpu items-center justify-center lg:justify-end">
           <HeroImage />
-        </motion.div>
+        </div>
       </div>
     </section>
   );
