@@ -104,8 +104,10 @@ const DesktopNav = forwardRef(function DesktopNav(
         <span
           ref={indicatorRef}
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-1 left-0 z-0 w-px rounded-full border border-cyan-300/15 bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_5px_16px_rgba(34,211,238,0.12)] backdrop-blur-sm transition-opacity duration-150 will-change-transform motion-reduce:transition-none"
-        />
+          className="pointer-events-none absolute inset-y-1 left-0 z-0 w-px rounded-full opacity-0 drop-shadow-[0_5px_12px_rgba(34,211,238,0.12)] transition-opacity duration-150 will-change-transform motion-reduce:transition-none"
+        >
+          <span className="absolute inset-0 overflow-hidden rounded-full border border-cyan-300/15 bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)] backdrop-blur-sm" />
+        </span>
       )}
 
       {portfolioData.navigation.map((item, index) => (
