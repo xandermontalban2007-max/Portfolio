@@ -7,63 +7,94 @@ import NavItem from "./NavItem";
 export default function DesktopNav({
   mobile = false,
   activeSection,
+  scrollProgress = 0,
   onNavigate,
 }) {
   const navRef = useRef(null);
   const itemRefs = useRef({});
-  const [indicator, setIndicator] = useState(null);
+  const [itemMetrics, setItemMetrics] = useState([]);
 
   useLayoutEffect(() => {
     if (mobile) return undefined;
 
-    const measureIndicator = () => {
+    const measureItems = () => {
       const nav = navRef.current;
-      const item = itemRefs.current[activeSection]?.querySelector("a");
-
-      if (!nav || !item) return;
+      if (!nav) return;
 
       const navRect = nav.getBoundingClientRect();
-      const itemRect = item.getBoundingClientRect();
-      const nextIndicator = {
-        x: itemRect.left - navRect.left - nav.clientLeft,
-        y: itemRect.top - navRect.top - nav.clientTop,
-        width: itemRect.width,
-        height: itemRect.height,
-      };
+      const nextMetrics = portfolioData.navigation
+        .map((item) => itemRefs.current[item.id]?.querySelector("a"))
+        .filter(Boolean)
+        .map((item) => {
+          const itemRect = item.getBoundingClientRect();
 
-      setIndicator((current) => {
+          return {
+            x: itemRect.left - navRect.left - nav.clientLeft,
+            y: itemRect.top - navRect.top - nav.clientTop,
+            width: itemRect.width,
+            height: itemRect.height,
+          };
+        });
+
+      if (nextMetrics.length !== portfolioData.navigation.length) return;
+
+      setItemMetrics((current) => {
         if (
-          current &&
-          Math.abs(current.x - nextIndicator.x) < 0.5 &&
-          Math.abs(current.y - nextIndicator.y) < 0.5 &&
-          Math.abs(current.width - nextIndicator.width) < 0.5 &&
-          Math.abs(current.height - nextIndicator.height) < 0.5
+          current.length === nextMetrics.length &&
+          current.every(
+            (metric, index) =>
+              Math.abs(metric.x - nextMetrics[index].x) < 0.5 &&
+              Math.abs(metric.y - nextMetrics[index].y) < 0.5 &&
+              Math.abs(metric.width - nextMetrics[index].width) < 0.5 &&
+              Math.abs(metric.height - nextMetrics[index].height) < 0.5,
+          )
         ) {
           return current;
         }
 
-        return nextIndicator;
+        return nextMetrics;
       });
     };
 
-    measureIndicator();
+    measureItems();
 
     const resizeObserver =
       "ResizeObserver" in window
-        ? new ResizeObserver(measureIndicator)
+        ? new ResizeObserver(measureItems)
         : null;
 
     if (navRef.current) {
       resizeObserver?.observe(navRef.current);
     }
 
-    window.addEventListener("resize", measureIndicator);
+    window.addEventListener("resize", measureItems);
 
     return () => {
       resizeObserver?.disconnect();
-      window.removeEventListener("resize", measureIndicator);
+      window.removeEventListener("resize", measureItems);
     };
-  }, [activeSection, mobile]);
+  }, [mobile]);
+
+  const lastMetricIndex = itemMetrics.length - 1;
+  const safeProgress = Math.min(
+    Math.max(scrollProgress, 0),
+    Math.max(lastMetricIndex, 0),
+  );
+  const startIndex = Math.floor(safeProgress);
+  const endIndex = Math.min(startIndex + 1, Math.max(lastMetricIndex, 0));
+  const amount = safeProgress - startIndex;
+  const startMetric = itemMetrics[startIndex];
+  const endMetric = itemMetrics[endIndex];
+  const interpolate = (start, end) => start + (end - start) * amount;
+  const indicator =
+    startMetric && endMetric
+      ? {
+          x: interpolate(startMetric.x, endMetric.x),
+          y: interpolate(startMetric.y, endMetric.y),
+          width: interpolate(startMetric.width, endMetric.width),
+          height: interpolate(startMetric.height, endMetric.height),
+        }
+      : null;
 
   return (
     <nav
@@ -86,7 +117,7 @@ export default function DesktopNav({
             height: indicator.height,
             opacity: 1,
           }}
-          transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="pointer-events-none absolute left-0 top-0 z-0 rounded-full bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 shadow-[0_5px_14px_rgba(79,70,229,0.16)] will-change-[transform,width]"
         />
       )}

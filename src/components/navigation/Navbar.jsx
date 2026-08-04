@@ -10,6 +10,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [scrollProgress, setScrollProgress] = useState(0);
   const navShellRef = useRef(null);
 
   useEffect(() => {
@@ -24,6 +25,22 @@ export default function Navbar() {
         navShellRef.current?.getBoundingClientRect().bottom || 88;
       const pageEnd =
         document.documentElement.scrollHeight - window.innerHeight;
+      const sectionEntries = sectionIds
+        .map((id, index) => {
+          const anchor = document.getElementById(id);
+          const section = anchor?.closest("section") || anchor;
+
+          return section
+            ? {
+                id,
+                index,
+                section,
+                anchorRect: anchor.getBoundingClientRect(),
+                rect: section.getBoundingClientRect(),
+              }
+            : null;
+        })
+        .filter(Boolean);
       let currentSection = sectionIds[0] || "home";
 
       if (scrollY >= pageEnd - 2) {
@@ -31,12 +48,7 @@ export default function Navbar() {
       } else if (scrollY > 2) {
         let largestVisibleArea = 0;
 
-        for (const id of sectionIds) {
-          const anchor = document.getElementById(id);
-          const section = anchor?.closest("section") || anchor;
-
-          if (!section) continue;
-          const rect = section.getBoundingClientRect();
+        for (const { id, rect } of sectionEntries) {
           const visibleTop = Math.max(rect.top, navBottom + 8);
           const visibleBottom = Math.min(rect.bottom, window.innerHeight);
           const visibleArea = Math.max(0, visibleBottom - visibleTop);
@@ -48,12 +60,58 @@ export default function Navbar() {
         }
       }
 
+      let nextScrollProgress = 0;
+
+      if (scrollY >= pageEnd - 2) {
+        nextScrollProgress = sectionIds.length - 1;
+      } else if (sectionEntries.length > 1) {
+        let previousMilestone = 0;
+        const milestones = sectionEntries.map((entry, index) => {
+          const rawMilestone =
+            entry.anchorRect.top + scrollY - navBottom - 8;
+          const milestone =
+            index === 0
+              ? 0
+              : Math.min(
+                  pageEnd,
+                  Math.max(previousMilestone + 1, rawMilestone),
+                );
+
+          previousMilestone = milestone;
+          return { index: entry.index, position: milestone };
+        });
+
+        nextScrollProgress = milestones.at(-1).index;
+
+        for (let index = 0; index < milestones.length - 1; index += 1) {
+          const current = milestones[index];
+          const next = milestones[index + 1];
+
+          if (scrollY > next.position) continue;
+
+          const distance = Math.max(1, next.position - current.position);
+          const progress = Math.min(
+            1,
+            Math.max(0, (scrollY - current.position) / distance),
+          );
+
+          nextScrollProgress =
+            current.index + (next.index - current.index) * progress;
+          break;
+        }
+      }
+
       setScrolled((current) => {
         const next = scrollY > 20;
         return current === next ? current : next;
       });
       setActiveSection((current) =>
         current === currentSection ? current : currentSection,
+      );
+      setScrollProgress((current) =>
+        Math.abs(current - nextScrollProgress) < 0.001
+          ? current
+          : nextScrollProgress,
       );
     };
 
@@ -165,6 +223,7 @@ export default function Navbar() {
         <Logo onNavigate={handleNavigate} />
         <DesktopNav
           activeSection={activeSection}
+          scrollProgress={scrollProgress}
           onNavigate={handleNavigate}
         />
 
@@ -193,6 +252,7 @@ export default function Navbar() {
             <DesktopNav
               mobile
               activeSection={activeSection}
+              scrollProgress={scrollProgress}
               onNavigate={handleMobileNavClick}
             />
           </motion.div>
