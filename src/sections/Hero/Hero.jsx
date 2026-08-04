@@ -81,6 +81,7 @@ export default function Hero() {
             <p className="text-xs font-extrabold uppercase tracking-[0.24em] text-indigo-300 sm:text-sm">
               Virtual Assistant
             </p>
+            <span className="h-px w-8 bg-gradient-to-r from-indigo-400 to-blue-400" />
           </motion.div>
 
           <motion.h1
