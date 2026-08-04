@@ -17,22 +17,22 @@ const strengths = [
   {
     icon: HiOutlineCheckBadge,
     title: "Detail-Oriented",
-    description: "Careful with every entry and document",
+    description: "Careful with every entry and document.",
   },
   {
     icon: HiOutlineFolder,
     title: "Organized",
-    description: "Keeps files and tasks easy to follow",
+    description: "Keeps files and tasks easy to follow.",
   },
   {
     icon: HiOutlineShieldCheck,
     title: "Reliable",
-    description: "Finishes work with care",
+    description: "Finishes work with care.",
   },
   {
     icon: HiOutlineBolt,
     title: "Fast Learner",
-    description: "Open to new tools and new ways of working",
+    description: "Open to new tools and new ways of working.",
   },
 ];
 
@@ -47,13 +47,13 @@ const storyItems = [
     icon: HiOutlineFolder,
     title: "What I Enjoy",
     description:
-      "I enjoy turning messy information into clean and easy-to-use files",
+      "I enjoy turning messy information into clean and easy-to-use files.",
   },
   {
     icon: HiOutlineCheckBadge,
     title: "My Goal",
     description:
-      "I want to gain work experience, help a good team, and become someone clients can trust",
+      "I want to gain work experience, help a good team, and become someone clients can trust.",
   },
 ];
 
@@ -62,35 +62,35 @@ const learning = [
     icon: HiOutlineTableCells,
     title: "Data Entry",
     description:
-      "Learning data validation, data cleanup, and ways to handle larger spreadsheets",
+      "Learning data validation, data cleanup, and ways to handle larger spreadsheets.",
   },
   {
     icon: HiOutlineCheckBadge,
     title: "Virtual Assistance",
-    description: "Learning inbox automation and calendar coordination",
+    description: "Learning inbox automation and calendar coordination.",
   },
   {
     icon: HiOutlineDocumentText,
     title: "Microsoft Office",
     description:
-      "Learning advanced Excel formulas, PivotTables, mail merge, and better presentation design",
+      "Learning advanced Excel formulas, PivotTables, mail merge, and better presentation design.",
   },
   {
     icon: HiOutlineFolder,
     title: "Google Workspace",
     description:
-      "Learning advanced Sheets formulas, Apps Script basics, Forms automation, and connected spreadsheets",
+      "Learning advanced Sheets formulas, Apps Script basics, Forms automation, and connected spreadsheets.",
   },
   {
     icon: HiOutlineMagnifyingGlass,
     title: "Internet Research",
     description:
-      "Learning advanced search operators, checking archived pages, and cross-checking hard-to-find information",
+      "Learning advanced search operators, checking archived pages, and cross-checking hard-to-find information.",
   },
   {
     icon: HiOutlineDocumentText,
     title: "Document Formatting",
-    description: "Practicing clear layouts and consistent document styles",
+    description: "Practicing clear layouts and consistent document styles.",
   },
 ];
 
