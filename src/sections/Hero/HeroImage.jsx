@@ -82,7 +82,7 @@ export default function HeroImage() {
       variants={imageSequence}
       initial="hidden"
       animate="visible"
-      className="relative mx-auto w-full max-w-[470px] pb-4 lg:mx-0 lg:max-w-[500px] lg:pb-8"
+      className="relative mx-auto w-full max-w-[470px] pb-4 lg:max-w-[500px] lg:pb-8"
     >
       <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-cyan-500/10 via-blue-500/[0.08] to-indigo-500/12 blur-3xl" />
 
