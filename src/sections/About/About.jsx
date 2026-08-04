@@ -135,7 +135,7 @@ export default function About() {
   };
 
   return (
-    <section className="relative isolate -mt-28 overflow-hidden bg-transparent pb-16 pt-44">
+    <section className="relative isolate -mt-28 overflow-hidden bg-transparent pb-16 pt-32">
       <span
         id="about"
         aria-hidden="true"
