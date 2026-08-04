@@ -11,7 +11,6 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const navShellRef = useRef(null);
-  const desktopNavRef = useRef(null);
 
   useEffect(() => {
     const sectionIds = portfolioData.navigation.map((item) => item.id);
@@ -53,8 +52,6 @@ export default function Navbar() {
         Math.max(0, Math.round(scrollPosition)),
       );
       const currentSection = sectionIds[activeIndex] || "home";
-
-      desktopNavRef.current?.setScrollPosition(scrollPosition);
 
       setScrolled((current) => {
         const next = scrollY > 20;
@@ -178,7 +175,6 @@ export default function Navbar() {
 
         <Logo onNavigate={handleNavigate} />
         <DesktopNav
-          ref={desktopNavRef}
           activeSection={activeSection}
           onNavigate={handleNavigate}
         />
