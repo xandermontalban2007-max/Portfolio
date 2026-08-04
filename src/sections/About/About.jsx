@@ -276,13 +276,6 @@ export default function About() {
                     <span className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.08] text-cyan-300 shadow-[0_12px_28px_rgba(0,0,0,0.16)]">
                       <SelectedIcon size={27} />
                     </span>
-
-                    <div className="text-right">
-                      <p className="font-mono text-xs font-bold text-white/35">
-                        {String(activeItem + 1).padStart(2, "0")} / {" "}
-                        {String(activeGroup.items.length).padStart(2, "0")}
-                      </p>
-                    </div>
                   </div>
 
                   <div className="my-auto py-7">
