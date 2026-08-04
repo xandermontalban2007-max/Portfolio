@@ -56,7 +56,7 @@ export default function Hero() {
         <div className="absolute -bottom-40 -right-[8%] h-80 w-[58%] rounded-[50%] bg-cyan-500/10 blur-[115px]" />
       </motion.div>
 
-      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 sm:pt-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.06fr_0.94fr] lg:gap-14 lg:px-10 lg:pb-14 lg:pt-0 xl:gap-16">
+      <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 sm:pt-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.06fr_0.94fr] lg:gap-14 lg:px-10 lg:pb-0 lg:pt-0 xl:gap-16">
         <motion.div
           variants={heroSequence}
           initial="hidden"
