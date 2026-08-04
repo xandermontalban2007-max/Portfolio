@@ -22,10 +22,6 @@ export default function Navbar() {
       const scrollY = window.scrollY;
       const navBottom =
         navShellRef.current?.getBoundingClientRect().bottom || 88;
-      const activationLine = Math.max(
-        navBottom + 8,
-        Math.min(window.innerHeight * 0.34, navBottom + 220),
-      );
       const pageEnd =
         document.documentElement.scrollHeight - window.innerHeight;
       let currentSection = sectionIds[0] || "home";
@@ -33,13 +29,22 @@ export default function Navbar() {
       if (scrollY >= pageEnd - 2) {
         currentSection = sectionIds.at(-1) || currentSection;
       } else if (scrollY > 2) {
+        let largestVisibleArea = 0;
+
         for (const id of sectionIds) {
-          const section = document.getElementById(id);
+          const anchor = document.getElementById(id);
+          const section = anchor?.closest("section") || anchor;
 
           if (!section) continue;
-          if (section.getBoundingClientRect().top > activationLine) break;
+          const rect = section.getBoundingClientRect();
+          const visibleTop = Math.max(rect.top, navBottom + 8);
+          const visibleBottom = Math.min(rect.bottom, window.innerHeight);
+          const visibleArea = Math.max(0, visibleBottom - visibleTop);
 
-          currentSection = id;
+          if (visibleArea > largestVisibleArea) {
+            largestVisibleArea = visibleArea;
+            currentSection = id;
+          }
         }
       }
 
