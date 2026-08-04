@@ -15,43 +15,30 @@ export default function Navbar() {
   useEffect(() => {
     const sectionIds = portfolioData.navigation.map((item) => item.id);
     let animationFrame = null;
-    let sectionAnchors = [];
-    let pageEnd = 0;
 
     const readScrollPosition = () => {
       animationFrame = null;
 
       const scrollY = window.scrollY;
-      let scrollPosition = 0;
+      const navBottom =
+        navShellRef.current?.getBoundingClientRect().bottom || 88;
+      const activationLine = navBottom + 8;
+      const pageEnd =
+        document.documentElement.scrollHeight - window.innerHeight;
+      let currentSection = sectionIds[0] || "home";
 
-      for (let index = 0; index < sectionAnchors.length; index += 1) {
-        const currentAnchor = sectionAnchors[index];
-        const nextAnchor = sectionAnchors[index + 1];
+      if (scrollY >= pageEnd - 2) {
+        currentSection = sectionIds.at(-1) || currentSection;
+      } else if (scrollY > 2) {
+        for (const id of sectionIds) {
+          const section = document.getElementById(id);
 
-        if (scrollY < currentAnchor.top) break;
-        scrollPosition = index;
+          if (!section) continue;
+          if (section.getBoundingClientRect().top > activationLine) break;
 
-        if (nextAnchor && scrollY < nextAnchor.top) {
-          const distance = Math.max(1, nextAnchor.top - currentAnchor.top);
-          const progress = Math.min(
-            1,
-            Math.max(0, (scrollY - currentAnchor.top) / distance),
-          );
-
-          scrollPosition = index + progress;
-          break;
+          currentSection = id;
         }
       }
-
-      if (scrollY >= pageEnd && sectionAnchors.length > 0) {
-        scrollPosition = sectionAnchors.length - 1;
-      }
-
-      const activeIndex = Math.min(
-        sectionIds.length - 1,
-        Math.max(0, Math.floor(scrollPosition + 0.001)),
-      );
-      const currentSection = sectionIds[activeIndex] || "home";
 
       setScrolled((current) => {
         const next = scrollY > 20;
@@ -67,48 +54,21 @@ export default function Navbar() {
       animationFrame = window.requestAnimationFrame(readScrollPosition);
     };
 
-    const measureSections = () => {
-      const navBottom = navShellRef.current?.getBoundingClientRect().bottom || 88;
-      pageEnd = Math.max(
-        0,
-        document.documentElement.scrollHeight - window.innerHeight,
-      );
-      sectionAnchors = sectionIds
-        .map((id) => {
-          const section = document.getElementById(id);
-          return section
-            ? {
-                id,
-                top: Math.min(
-                  pageEnd,
-                  Math.max(
-                    0,
-                    section.getBoundingClientRect().top + window.scrollY - navBottom - 8,
-                  ),
-                ),
-              }
-            : null;
-        })
-        .filter(Boolean);
-
-      scheduleScrollRead();
-    };
-
-    measureSections();
+    scheduleScrollRead();
     window.addEventListener("scroll", scheduleScrollRead, { passive: true });
-    window.addEventListener("resize", measureSections);
+    window.addEventListener("resize", scheduleScrollRead);
 
     const mainContent = document.querySelector("main");
     const resizeObserver =
       mainContent && "ResizeObserver" in window
-        ? new ResizeObserver(measureSections)
+        ? new ResizeObserver(scheduleScrollRead)
         : null;
 
     resizeObserver?.observe(mainContent);
 
     return () => {
       window.removeEventListener("scroll", scheduleScrollRead);
-      window.removeEventListener("resize", measureSections);
+      window.removeEventListener("resize", scheduleScrollRead);
       resizeObserver?.disconnect();
 
       if (animationFrame !== null) {
@@ -124,15 +84,36 @@ export default function Navbar() {
     return () => window.removeEventListener("resize", closeMenu);
   }, []);
 
-  const handleNavigate = (_label, id) => {
-    if (id) {
-      setActiveSection(id);
-    }
+  const handleNavigate = (event, id) => {
+    if (!id) return;
+
+    event?.preventDefault();
+
+    const section = document.getElementById(id);
+    if (!section) return;
+
+    const navBottom = navShellRef.current?.getBoundingClientRect().bottom || 88;
+    const targetTop =
+      id === "home"
+        ? 0
+        : Math.max(
+            0,
+            window.scrollY + section.getBoundingClientRect().top - navBottom - 8,
+          );
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    window.history.replaceState(null, "", `#${id}`);
+    window.scrollTo({
+      top: targetTop,
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+    });
   };
 
-  const handleMobileNavClick = (label, id) => {
+  const handleMobileNavClick = (event, id) => {
     setMenuOpen(false);
-    handleNavigate(label, id);
+    handleNavigate(event, id);
   };
 
   return (

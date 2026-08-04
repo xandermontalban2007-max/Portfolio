@@ -135,12 +135,21 @@ export default function About() {
   };
 
   return (
-    <section
-      id="about"
-      className="relative isolate -mt-px overflow-hidden bg-[#070b18] py-16"
-    >
+    <section className="relative isolate -mt-28 overflow-hidden bg-transparent pb-16 pt-44">
+      <span
+        id="about"
+        aria-hidden="true"
+        className="pointer-events-none absolute left-0 top-28 h-px w-px"
+      />
       {/* Layered section background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div
+        className="pointer-events-none absolute inset-0 -z-10 overflow-hidden"
+        style={{
+          WebkitMaskImage:
+            "linear-gradient(to bottom, transparent 0, black 7rem)",
+          maskImage: "linear-gradient(to bottom, transparent 0, black 7rem)",
+        }}
+      >
         <div
           className="absolute inset-0"
           style={{

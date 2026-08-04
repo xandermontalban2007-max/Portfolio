@@ -4,7 +4,7 @@ export default function Logo({ onNavigate }) {
   return (
     <a
       href="#home"
-      onClick={() => onNavigate?.("Home", "home")}
+      onClick={(event) => onNavigate?.(event, "home")}
       className="group relative z-10 flex min-w-0 cursor-pointer items-center gap-3 rounded-2xl select-none focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#080d19] active:scale-[0.98] sm:gap-3.5"
       aria-label="Go to home section"
     >

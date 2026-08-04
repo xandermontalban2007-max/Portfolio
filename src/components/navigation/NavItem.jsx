@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 export default function NavItem({
   to,
   label,
@@ -19,13 +17,11 @@ export default function NavItem({
         active ? "active-nav" : ""
       }`}
     >
-      {active && showActiveBackground && (
-        <motion.span
-          layoutId={mobile ? "mobile-active-nav" : "desktop-active-nav"}
-          className={`absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 shadow-[0_5px_14px_rgba(79,70,229,0.16)] ${
+      {showActiveBackground && (
+        <span
+          className={`absolute inset-0 -z-10 bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 shadow-[0_5px_14px_rgba(79,70,229,0.16)] transition-opacity duration-150 ease-out ${
             mobile ? "rounded-2xl" : "rounded-full"
-          }`}
-          transition={{ duration: 0.18, ease: [0.22, 1, 0.36, 1] }}
+          } ${active ? "opacity-100" : "opacity-0"}`}
         />
       )}
 
