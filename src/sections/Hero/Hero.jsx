@@ -110,7 +110,7 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 font-bold text-white shadow-none transition-shadow duration-200 ease-out hover:shadow-[0_18px_40px_rgba(79,70,229,0.44)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b18]"
+              className="group inline-flex min-h-13 items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-600 to-indigo-600 px-6 py-3.5 font-bold text-white shadow-none transition-shadow duration-200 ease-out hover:shadow-[0_0_34px_6px_rgba(79,70,229,0.42)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2 focus-visible:ring-offset-[#070b18]"
             >
               <span className="transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none">
                 Let&apos;s work together
