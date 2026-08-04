@@ -82,13 +82,13 @@ export default function HeroImage() {
       variants={imageSequence}
       initial="hidden"
       animate="visible"
-      className="relative mx-auto w-full max-w-[500px] pb-8 lg:mx-0"
+      className="relative mx-auto w-full max-w-[470px] pb-4 lg:mx-0 lg:max-w-[500px] lg:pb-8"
     >
       <div className="pointer-events-none absolute -inset-8 -z-10 rounded-full bg-gradient-to-br from-cyan-500/10 via-blue-500/[0.08] to-indigo-500/12 blur-3xl" />
 
       <motion.div
         variants={cardReveal}
-        className="relative h-[400px] overflow-hidden rounded-[2.6rem] border border-white/10 bg-gradient-to-br from-[#0b1224] via-[#0c1428] to-[#0b1a2a] shadow-[0_28px_75px_rgba(0,0,0,0.34)] sm:h-[430px] lg:h-[410px] xl:h-[430px]"
+        className="relative h-[360px] overflow-hidden rounded-[2.6rem] border border-white/10 bg-gradient-to-br from-[#0b1224] via-[#0c1428] to-[#0b1a2a] shadow-[0_28px_75px_rgba(0,0,0,0.34)] sm:h-[390px] lg:h-[410px] xl:h-[430px]"
       >
         <div className="pointer-events-none absolute -right-20 -top-16 h-64 w-64 rounded-full bg-indigo-500/16 blur-[78px]" />
         <div className="pointer-events-none absolute -bottom-16 -left-16 h-60 w-60 rounded-full bg-cyan-500/11 blur-[72px]" />
@@ -113,7 +113,7 @@ export default function HeroImage() {
           variants={detailReveal}
           className="pointer-events-none absolute inset-0"
         >
-          <div className="absolute left-1/2 top-[49%] h-[285px] w-[285px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-300/20 bg-white/[0.045] shadow-[inset_0_0_80px_rgba(96,165,250,0.1)] sm:h-[325px] sm:w-[325px] lg:h-[305px] lg:w-[305px] xl:h-[325px] xl:w-[325px]" />
+          <div className="absolute left-1/2 top-[49%] h-[255px] w-[255px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-indigo-300/20 bg-white/[0.045] shadow-[inset_0_0_80px_rgba(96,165,250,0.1)] sm:h-[290px] sm:w-[290px] lg:h-[305px] lg:w-[305px] xl:h-[325px] xl:w-[325px]" />
         </motion.div>
 
         <motion.div
@@ -135,7 +135,7 @@ export default function HeroImage() {
               maskImage:
                 "linear-gradient(to bottom, black 0%, black 72%, rgba(0,0,0,0.96) 80%, transparent 100%)",
             }}
-            className="absolute bottom-0 left-1/2 h-[350px] w-auto max-w-none -translate-x-1/2 select-none object-contain drop-shadow-[0_22px_28px_rgba(0,0,0,0.34)] sm:h-[390px] lg:h-[370px] xl:h-[392px]"
+            className="absolute bottom-0 left-1/2 h-[315px] w-auto max-w-none -translate-x-1/2 select-none object-contain drop-shadow-[0_22px_28px_rgba(0,0,0,0.34)] sm:h-[350px] lg:h-[370px] xl:h-[392px]"
           />
         </motion.div>
 
