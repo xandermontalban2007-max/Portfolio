@@ -1,5 +1,4 @@
 import { useLayoutEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
 
 import portfolioData from "../../data/portfolioData";
 import NavItem from "./NavItem";
@@ -107,17 +106,13 @@ export default function DesktopNav({
       }
     >
       {!mobile && indicator && (
-        <motion.span
+        <span
           aria-hidden="true"
-          initial={false}
-          animate={{
-            x: indicator.x,
-            y: indicator.y,
+          style={{
             width: indicator.width,
             height: indicator.height,
-            opacity: 1,
+            transform: `translate3d(${indicator.x}px, ${indicator.y}px, 0)`,
           }}
-          transition={{ duration: 0.12, ease: [0.22, 1, 0.36, 1] }}
           className="pointer-events-none absolute left-0 top-0 z-0 rounded-full bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 shadow-[0_5px_14px_rgba(79,70,229,0.16)] will-change-[transform,width]"
         />
       )}
