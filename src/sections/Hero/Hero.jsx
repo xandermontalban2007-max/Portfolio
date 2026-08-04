@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { HiOutlineArrowDown } from "react-icons/hi";
-import { HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
+import { HiOutlineMapPin } from "react-icons/hi2";
 
 import portfolioData from "../../data/portfolioData";
 import HeroImage from "./HeroImage";
@@ -139,11 +139,6 @@ export default function Hero() {
             <span className="flex items-center gap-2">
               <HiOutlineMapPin className="text-indigo-400" size={18} />
               {personal.location || "Batangas City, Philippines"}
-            </span>
-            <span className="hidden h-1 w-1 rounded-full bg-slate-600 sm:block" />
-            <span className="flex items-center gap-2">
-              <HiOutlineClock className="text-indigo-400" size={18} />
-              GMT+8 · Philippine Time
             </span>
           </motion.div>
         </motion.div>
