@@ -145,7 +145,7 @@ export default function About() {
         <div className="absolute -right-48 bottom-[-4rem] h-[520px] w-[520px] rounded-full bg-indigo-500/12 blur-[145px]" />
         <div className="absolute left-[43%] top-[32%] h-72 w-72 rounded-full bg-blue-500/[0.07] blur-[100px]" />
         <div className="absolute inset-0 opacity-[0.035] [background-image:linear-gradient(#ffffff_1px,transparent_1px),linear-gradient(to_right,#ffffff_1px,transparent_1px)] [background-size:68px_68px]" />
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#090e1c] to-transparent sm:h-36" />
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#0b1020] to-transparent sm:h-36" />
         <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-b from-transparent to-[#0a141f] sm:h-36" />
       </div>
 
