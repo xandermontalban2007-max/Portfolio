@@ -153,7 +153,7 @@ export default function HeroImage() {
 
       <motion.div
         variants={statsReveal}
-        className="relative z-40 mx-2 -mt-1 grid grid-cols-3 overflow-hidden rounded-[1.65rem] border border-white/10 bg-[#080d19]/88 p-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.3)] backdrop-blur-xl sm:mx-3 sm:-mt-2"
+        className="relative z-40 mx-2 -mt-1 grid grid-cols-3 overflow-hidden rounded-[1.65rem] border border-white/15 bg-[#080d19]/96 p-1.5 shadow-[0_18px_45px_rgba(0,0,0,0.3)] sm:mx-3 sm:-mt-2"
       >
         {details.map((item, index) => {
           const Icon = item.icon;
@@ -173,7 +173,7 @@ export default function HeroImage() {
                 <span className="block truncate text-xs font-black text-slate-100 sm:text-sm">
                   {item.value}
                 </span>
-                <span className="mt-0.5 block truncate text-[8px] font-bold uppercase tracking-[0.1em] text-slate-500 sm:text-[9px]">
+                <span className="mt-0.5 block truncate text-[8px] font-bold uppercase tracking-[0.1em] text-slate-400 sm:text-[9px]">
                   {item.label}
                 </span>
               </span>
