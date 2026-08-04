@@ -199,7 +199,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative isolate overflow-hidden bg-[#0b1628] py-20"
+      className="relative isolate overflow-hidden bg-[#0b1628] pb-20 pt-4"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-cyan-500/[0.09] blur-[130px]" />

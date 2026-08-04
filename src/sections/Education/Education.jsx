@@ -42,7 +42,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="relative isolate overflow-hidden bg-[#16130f] py-16"
+      className="relative isolate overflow-hidden bg-[#16130f] pb-16 pt-4"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-40 top-12 h-96 w-96 rounded-full bg-amber-500/10 blur-[135px]" />

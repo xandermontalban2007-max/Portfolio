@@ -139,7 +139,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="relative isolate overflow-hidden bg-[#111024] py-16"
+      className="relative isolate overflow-hidden bg-[#111024] pb-16 pt-4"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-40 top-20 h-96 w-96 rounded-full bg-violet-500/12 blur-[125px]" />
