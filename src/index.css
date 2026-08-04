@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -10,14 +9,14 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 6rem;
+  scroll-padding-top: 5.25rem;
 }
 
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
-  background: #ffffff;
-  color: #0f172a;
+  background: #070b18;
+  color: #e2e8f0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

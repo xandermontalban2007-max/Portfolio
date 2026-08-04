@@ -82,7 +82,7 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="relative isolate scroll-mt-24 overflow-hidden bg-[#091721] py-16"
+      className="relative isolate overflow-hidden bg-[#091721] py-16"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute -left-40 top-16 h-96 w-96 rounded-full bg-blue-500/10 blur-[130px]" />

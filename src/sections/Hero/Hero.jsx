@@ -27,10 +27,10 @@ export default function Hero() {
 
       <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-5 pb-16 pt-12 sm:px-8 sm:pt-14 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.06fr_0.94fr] lg:gap-14 lg:px-10 lg:pb-14 lg:pt-0 xl:gap-16">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto w-full max-w-2xl text-center lg:mx-0 lg:text-left"
+          transition={{ duration: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          className="mx-auto w-full max-w-2xl transform-gpu text-center lg:mx-0 lg:text-left"
         >
           <div className="flex justify-center lg:justify-start">
             <div className="inline-flex items-center gap-2.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.07] px-4 py-2 text-xs font-black uppercase tracking-[0.12em] text-emerald-300 shadow-[0_8px_24px_rgba(16,185,129,0.08)] sm:text-sm">
@@ -103,10 +103,10 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 24 }}
+          initial={{ opacity: 0, x: 12 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
-          className="flex w-full items-center justify-center lg:justify-end"
+          transition={{ duration: 0.4, delay: 0.03, ease: [0.16, 1, 0.3, 1] }}
+          className="flex w-full transform-gpu items-center justify-center lg:justify-end"
         >
           <HeroImage />
         </motion.div>

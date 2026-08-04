@@ -137,7 +137,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative isolate scroll-mt-24 overflow-hidden bg-[#0b1020] py-16"
+      className="relative isolate overflow-hidden bg-[#0b1020] py-16"
     >
       {/* Layered section background */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
