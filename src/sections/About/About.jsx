@@ -41,7 +41,7 @@ const storyItems = [
     icon: HiOutlineAcademicCap,
     title: "How I Started",
     description:
-      "I became interested in digital work while organizing school files, research, and spreadsheets",
+      "I became interested in digital work while organizing school files, research, and spreadsheets.",
   },
   {
     icon: HiOutlineFolder,
