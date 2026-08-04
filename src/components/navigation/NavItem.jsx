@@ -13,8 +13,10 @@ export default function NavItem({
       aria-current={active ? "page" : undefined}
       className={`group isolate relative cursor-pointer overflow-hidden ${
         mobile ? "rounded-2xl px-4 py-3 text-left" : "rounded-full px-4 py-2.5"
-      } text-sm font-semibold text-slate-300 transition-[color,background-color] duration-150 ease-out hover:text-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 focus-visible:ring-offset-[#080d19] active:bg-indigo-400/15 active:text-cyan-200 ${
-        active ? "active-nav" : ""
+      } text-sm font-semibold transition-[color,background-color] duration-150 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-1 focus-visible:ring-offset-[#080d19] active:bg-indigo-400/15 ${
+        active
+          ? "active-nav text-cyan-300"
+          : "text-slate-300 hover:text-slate-100 active:text-cyan-200"
       }`}
     >
       {showActiveBackground && (
@@ -26,12 +28,12 @@ export default function NavItem({
       )}
 
       <span
-        className={`absolute inset-0 -z-10 scale-95 bg-gradient-to-r from-white/[0.05] via-indigo-400/10 to-cyan-400/[0.07] opacity-0 transition-[transform,opacity] duration-150 ease-out group-hover:scale-100 group-hover:opacity-100 ${
+        className={`absolute inset-0 -z-10 bg-gradient-to-r from-white/[0.05] via-indigo-400/10 to-cyan-400/[0.07] transition-opacity duration-150 ease-out ${
           mobile ? "rounded-2xl" : "rounded-full"
-        }`}
+        } ${active ? "opacity-0" : "opacity-0 group-hover:opacity-100"}`}
       />
 
-      <span className="relative inline-block transition-[transform,color] duration-150 ease-out group-hover:scale-[1.02] group-[.active-nav]:font-semibold group-[.active-nav]:text-cyan-300 motion-reduce:transform-none">
+      <span className="relative inline-block">
         {label}
       </span>
 
