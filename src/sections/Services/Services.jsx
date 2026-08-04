@@ -245,15 +245,11 @@ export default function Services() {
                         }`}
                         aria-hidden="true"
                       />
-                      <span
-                        className={`text-[9px] font-black uppercase tracking-[0.16em] transition-colors duration-200 ${
-                          isActive
-                            ? "text-cyan-300"
-                            : "text-slate-500 group-hover:text-cyan-300"
-                        }`}
-                      >
-                        {isActive ? "Selected" : "View"}
-                      </span>
+                      {!isActive && (
+                        <span className="text-[9px] font-black uppercase tracking-[0.16em] text-slate-500 transition-colors duration-200 group-hover:text-cyan-300">
+                          View
+                        </span>
+                      )}
                     </div>
                   </div>
                 </motion.button>
