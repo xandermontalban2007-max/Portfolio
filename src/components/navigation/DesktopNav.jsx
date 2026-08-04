@@ -40,9 +40,14 @@ const DesktopNav = forwardRef(function DesktopNav(
 
       if (!firstItem || !secondItem) return;
 
-      const x = firstItem.x + (secondItem.x - firstItem.x) * progress;
+      const x =
+        firstItem.x +
+        (secondItem.x - firstItem.x) * progress +
+        3;
       const width =
-        firstItem.width + (secondItem.width - firstItem.width) * progress;
+        firstItem.width +
+        (secondItem.width - firstItem.width) * progress -
+        6;
 
       indicator.style.opacity = "1";
       indicator.style.transform = `translate3d(${x}px, 0, 0) scaleX(${width})`;
@@ -98,7 +103,7 @@ const DesktopNav = forwardRef(function DesktopNav(
         <span
           ref={indicatorRef}
           aria-hidden="true"
-          className="pointer-events-none absolute inset-y-1.5 left-0 z-0 w-px origin-left rounded-full bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 opacity-0 shadow-[0_4px_14px_rgba(79,70,229,0.16)] transition-opacity duration-150 will-change-transform motion-reduce:transition-none"
+          className="pointer-events-none absolute inset-y-1 left-0 z-0 w-px origin-left rounded-[999px] border border-cyan-300/15 bg-gradient-to-r from-blue-500/20 via-indigo-500/25 to-cyan-400/20 opacity-0 shadow-[inset_0_1px_0_rgba(255,255,255,0.07),0_5px_16px_rgba(34,211,238,0.12)] transition-opacity duration-150 will-change-transform motion-reduce:transition-none"
         />
       )}
 
