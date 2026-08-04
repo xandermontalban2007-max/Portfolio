@@ -49,7 +49,7 @@ export default function Navbar() {
 
       const activeIndex = Math.min(
         sectionIds.length - 1,
-        Math.max(0, Math.round(scrollPosition)),
+        Math.max(0, Math.floor(scrollPosition + 0.001)),
       );
       const currentSection = sectionIds[activeIndex] || "home";
 
