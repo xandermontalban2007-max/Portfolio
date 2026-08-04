@@ -278,10 +278,7 @@ export default function About() {
                     </span>
 
                     <div className="text-right">
-                      <p className="text-[9px] font-black uppercase tracking-[0.2em] text-cyan-300">
-                        {activeGroup.label}
-                      </p>
-                      <p className="mt-2 font-mono text-xs font-bold text-white/35">
+                      <p className="font-mono text-xs font-bold text-white/35">
                         {String(activeItem + 1).padStart(2, "0")} / {" "}
                         {String(activeGroup.items.length).padStart(2, "0")}
                       </p>
