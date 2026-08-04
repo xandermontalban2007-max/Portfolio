@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="absolute inset-0 opacity-[0.045] [background-image:linear-gradient(#60a5fa_1px,transparent_1px),linear-gradient(to_right,#60a5fa_1px,transparent_1px)] [background-size:72px_72px] [mask-image:linear-gradient(to_bottom,black,transparent_86%)]" />
         <div className="absolute -bottom-24 left-[8%] h-72 w-[44%] rounded-full bg-indigo-500/[0.08] blur-[115px]" />
         <div className="absolute -bottom-28 right-[3%] h-72 w-[46%] rounded-full bg-cyan-500/[0.07] blur-[120px]" />
-        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#080d1b]/70 to-[#070b18] sm:h-80" />
+        <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-b from-transparent via-[#08101e]/78 to-[#091020] sm:h-80" />
         <div className="absolute -bottom-40 -left-[8%] h-80 w-[58%] rounded-[50%] bg-indigo-500/12 blur-[110px]" />
         <div className="absolute -bottom-40 -right-[8%] h-80 w-[58%] rounded-[50%] bg-cyan-500/10 blur-[115px]" />
       </motion.div>
