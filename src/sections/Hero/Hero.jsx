@@ -1,8 +1,5 @@
 import { motion } from "framer-motion";
-import {
-  HiArrowRight,
-  HiOutlineArrowDown,
-} from "react-icons/hi";
+import { HiOutlineArrowDown } from "react-icons/hi";
 import { HiOutlineClock, HiOutlineMapPin } from "react-icons/hi2";
 
 import portfolioData from "../../data/portfolioData";
@@ -115,8 +112,8 @@ export default function Hero() {
               <span className="transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transform-none">
                 Let&apos;s work together
               </span>
-              <HiArrowRight
-                className="transition-transform duration-200 group-hover:translate-x-1 motion-reduce:transform-none"
+              <HiOutlineArrowDown
+                className="transition-transform duration-200 group-hover:translate-y-1 motion-reduce:transform-none"
                 size={18}
               />
             </a>
